@@ -1,3 +1,5 @@
+# ELT method for customers
+
 import src.common as common
 #from src.common import read_file, caricamento_barra
 import psycopg
@@ -34,6 +36,7 @@ def load(df):
     print("Questo è il metodo LOAD dei clienti")
     with psycopg.connect(host=host, dbname=dbname, user=user, password=password, port=port) as conn:
         with conn.cursor() as cur:
+
             sql = """
             CREATE TABLE customers (
             pk_customer VARCHAR PRIMARY KEY,
@@ -49,8 +52,8 @@ def load(df):
             except psycopg.errors.DuplicateTable as ex:
                 conn.commit()
                 print(ex)
-                scelta = input("Vuoi cancellare la tabella? (si/no) ").strip().upper()
-                if scelta == "SI":
+                scelta = input("Do you want to delete table? Y/N ").strip().upper()
+                if scelta == "Y":
                     sqldelete = """DROP TABLE customers"""
                     cur.execute(sqldelete)
                     conn.commit()
@@ -122,9 +125,6 @@ def main():
     print("Dati trasformati")
     print(df, end="\n\n")  # visualizza una riga vuota
     load(df)
-
-
-
 
 # voglio usare questo file come fosse un modulo:
 # i metodi definii sopra andranno importati per poter essere utilizzati

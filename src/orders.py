@@ -1,4 +1,4 @@
-# 3 metodi ETL per ORDERS
+# ETL methods for ORDERS
 
 def extract():
     print("Questo è il metodo EXTRACT degli ordini")
@@ -17,3 +17,7 @@ def main():
 
 if __name__ == "__main__": # Indica ciò che viene eseguito quando eseguo direttamente
     main()
+
+# da aggiungere al def load
+    df["order_purchase_timestamp"] = pd.to_datetime(df["order_purchase_timestamp"])
+    df["order_delivered_customer_date"] = pd.to_datetime(df["order_delivered_customer_date"])
