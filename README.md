@@ -58,7 +58,7 @@ oltre a strip() e upper()/lower()
 - check sui cap >5 cifre (formato 01234)
 - check sulle 20 regioni ammesse
 - integrare dati customer a partire dal cap
-- gestione del tipo di valore da aggiornare in fillNulls
+- gestione del tipo di valore da aggiornare in fillNull
 - formattazione stringhe: 
   * no caratteri speciali all'inizio e alla fine delle stringhe,
   - codifica utf8

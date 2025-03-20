@@ -13,6 +13,7 @@ if __name__ == "__main__":
         2 = esegui integrazione dati regione e città
         3 = format region per PowerBI
         4 = ETL categories
+        5 = ETL products
         """)
         if risposta == "1":
             df_customers = customers.extract()
@@ -26,8 +27,14 @@ if __name__ == "__main__":
             common.format_region()
         elif risposta == "4":
             df_categories = categories.extract()
-            df_categories = categories.macro_category(df_categories)
+            df_categories = categories.t_macro_category(df_categories)
             #categories.load(df_categories)
+        elif risposta == "5":
+            df_products = products.extract()
+            products.convert_numbers(df_products)
+
+            #df_products = products.transform()
+            products.load(df_products)
         else: risposta = "0"
 
 '''

@@ -1,4 +1,4 @@
-# ELT method for customers
+# ETL methods for customers
 
 import src.common as common
 #from src.common import read_file, caricamento_barra
@@ -13,8 +13,6 @@ dbname = os.getenv("dbname")
 user = os.getenv("user")
 password = os.getenv("password")
 port = os.getenv("port")
-
-# 3 metodi ETL per CUSTOMERS
 
 def extract():
     print("Questo è il metodo EXTRACT dei clienti")
